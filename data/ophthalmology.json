@@ -1,0 +1,51 @@
+{
+  "subject": "Ophthalmology",
+  "years": "2018–2025",
+  "questions": [
+    {
+      "q": "Identify the fundus picture shown:",
+      "img": "Retinitis-pigmentosa.webp",
+      "o": ["Diabetic retinopathy","Retinitis pigmentosa","CRAO","Hypertensive retinopathy"],
+      "a": 1
+    },
+    {
+      "q": "White pupillary reflex in this child suggests:",
+      "img": "unnamed.png",
+      "o": ["Congenital cataract","Retinoblastoma","PHPV","Coats disease"],
+      "a": 1
+    },
+    {
+      "q": "The ocular deviation seen is:",
+      "img": "unnamed(1).png",
+      "o": ["Esotropia","Exotropia","Hypertropia","Pseudo-strabismus"],
+      "a": 1
+    },
+    {
+      "q": "The lens opacity shown is:",
+      "img": "Diseases-of-Lens.webp",
+      "o": ["Posterior subcapsular cataract","Sunflower cataract","Traumatic cataract","Nuclear sclerosis"],
+      "a": 1
+    },
+    {
+      "q": "The corneal condition shown is:",
+      "img": "unnamed(2).png",
+      "o": ["Keratoconus","PMD","Fuchs dystrophy","Corneal scar"],
+      "a": 0
+    },
+    {
+      "q": "Loss of vision in right halves of both eyes indicates lesion at:",
+      "o": ["Left optic tract","Optic chiasma","Right optic nerve","Right visual cortex"],
+      "a": 0
+    },
+    {
+      "q": "Drug increasing uveoscleral outflow:",
+      "o": ["Timolol","Latanoprost","Pilocarpine","Acetazolamide"],
+      "a": 1
+    },
+    {
+      "q": "Sunflower cataract is seen in:",
+      "o": ["Wilson disease","Diabetes","Trauma","Steroid use"],
+      "a": 0
+    }
+  ]
+}
