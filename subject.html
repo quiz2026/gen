@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NEET-PG Subject Quiz</title>
+
+<style>
+body{font-family:Arial;background:#f4f6f8;padding:20px}
+.quiz{max-width:1000px;margin:auto;background:#fff;padding:20px;border-radius:8px}
+.q{font-weight:bold;margin-top:18px}
+img{max-width:100%;margin:10px 0;border:1px solid #ccc;border-radius:6px}
+label{display:block;margin:6px 0;cursor:pointer}
+button{padding:8px 16px;font-size:15px;cursor:pointer}
+.result{background:#eef6ff;padding:15px;border-radius:6px;margin-top:20px}
+</style>
+</head>
+
+<body>
+<div class="quiz">
+
+<a href="index.html">⬅ Back to Subjects</a>
+<h2 id="title"></h2>
+
+<p><b>Enter Name:</b><br>
+<input type="text" id="username" placeholder="Your name"></p>
+
+<div id="quiz"></div>
+
+<button onclick="submitQuiz()">Submit</button>
+<div id="result"></div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const subject = params.get("name");
+
+fetch(`data/${subject}.json`)
+  .then(r => r.json())
+  .then(Q => startQuiz(Q));
+
+function startQuiz(Q){
+document.getElementById("title").innerText =
+  Q.subject + " PYQs (" + Q.years + ")";
+
+const quiz = document.getElementById("quiz");
+
+Q.questions.forEach((x,i)=>{
+quiz.innerHTML += `
+<div class="q">${i+1}. ${x.q}</div>
+${x.img ? `<img src="images/${x.img}">` : ""}
+${x.o.map((v,j)=>`
+<label>
+<input type="radio" name="q${i}" value="${j}"> ${v}
+</label>`).join("")}
+<hr>`;
+});
+
+window.submitQuiz = function(){
+let score = 0;
+Q.questions.forEach((q,i)=>{
+const sel = document.querySelector('input[name="q'+i+'"]:checked');
+if(sel && parseInt(sel.value) === q.a) score++;
+});
+
+const name = document.getElementById("username").value || "Candidate";
+document.getElementById("result").innerHTML = `
+<div class="result">
+<b>Name:</b> ${name}<br>
+<b>Score:</b> ${score} / ${Q.questions.length}
+</div>`;
+document.querySelectorAll("input[type=radio]").forEach(r=>r.disabled=true);
+};
+}
+</script>
+
+</body>
+</html>
